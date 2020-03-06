@@ -5,10 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordManager"
         mc:Ignorable="d"
-        Title="Login" Height="160" Width="500" ResizeMode="NoResize">
+        Title="Login"
+        Height="160" 
+        Width="450" 
+        ResizeMode="NoResize"
+        Icon="lock.ico">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"></ColumnDefinition>    <!-- Rand links -->
             <ColumnDefinition Width="8*"></ColumnDefinition>    <!-- Text Spalte -->
             <ColumnDefinition Width="10*"></ColumnDefinition>   <!-- Eingabe Spalte -->
             <ColumnDefinition Width="2*"></ColumnDefinition>    <!-- Rand rechts -->
@@ -24,13 +27,13 @@
         </Grid.RowDefinitions>
         
         <!-- Elemente -->
-        <PasswordBox x:Name="pwdBox_Password" Grid.Column="2" Grid.Row="1" Margin="5" FontSize="15" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"></PasswordBox>
+        <PasswordBox x:Name="pwdBox_Password" Grid.Column="1" Grid.Row="1" Margin="5" FontSize="15" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"></PasswordBox>
         
-        <Label Content="Masterpasswort:" Grid.Column="1" Grid.Row="1" Margin="4"  FontSize="15" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
+        <Label Content="Masterpasswort:" Grid.Column="0" Grid.Row="1" Margin="4"  FontSize="15" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
 
-        <Button x:Name="btn_Input" Content="Eingabe" Grid.Column="2" Grid.Row="3" Margin="4" FontSize="20"></Button>
+        <Button x:Name="btn_Input" Content="Eingabe" Grid.Column="1" Grid.Row="3" Margin="4" FontSize="20"></Button>
 
-        <Label Content="Einrichtung hier starten!" Grid.Column="2" Grid.Row="4" Margin="110,0,0,0"  FontSize="10" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" MouseLeftButtonDown="Label_MouseLeftButtonDown" ></Label>
+        <Label Content="Einrichtung hier starten!" Grid.Column="1" Grid.Row="4" Margin="100,0,0,0"  FontSize="10" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" MouseLeftButtonDown="Label_MouseLeftButtonDown" ></Label>
 
 
 
