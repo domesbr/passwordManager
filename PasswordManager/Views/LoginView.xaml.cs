@@ -25,10 +25,9 @@ namespace PasswordManager
             InitializeComponent();
         }
 
-        private void Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void SetupLabel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            //TODO
-
+            //TODO Open Setup Label
         }
     }
 }
