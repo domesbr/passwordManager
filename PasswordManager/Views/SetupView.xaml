@@ -4,17 +4,58 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PasswordManager.Views"
+        xmlns:xctk ="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="SetupView" Height="450" Width="800">
+        Title="SetupView" Height="350" Width="525" ResizeMode="NoResize">
     <Grid>
-        <TabControl HorizontalAlignment="Left" Height="117" Margin="193,110,0,0" VerticalAlignment="Top" Width="336">
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="TabItem">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-        </TabControl>
+        <xctk:Wizard FinishButtonClosesWindow="True">
+            <xctk:WizardPage x:Name="IntroPage" 
+                                   Title="Willkommenstext TODO"
+                                   Description="This Wizard will walk you though how to do something." />
+            <xctk:WizardPage x:Name="EmailPwdPage" PageType="Interior"
+                                   Title="E-Mail und Passwort"
+                                   Description="Gebe hier deine E-Mail und dein Passwort ein"
+                                   CanSelectNextPage="False">
+                <Grid>
+                    <!--Grid for the first page-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width = '2*'></ColumnDefinition>
+                        <ColumnDefinition Width = '5*'></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height = '1*'></RowDefinition>
+                        <RowDefinition Height = '5*'></RowDefinition>
+                        <RowDefinition Height = '5*'></RowDefinition>
+                        <RowDefinition Height = '5*'></RowDefinition>
+                        <RowDefinition Height = '*'></RowDefinition>
+                    </Grid.RowDefinitions>
 
+                    <Label x:Name="lbl_Email" Content="E-Mail:" Grid.Column="0" Grid.Row="1" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                    <TextBox x:Name="txtBox_Email" Grid.Column="1" Grid.Row="1" Margin="15" VerticalContentAlignment="Center" LostFocus="txtBox_Email_LostFocus"></TextBox>
+
+                    <Label x:Name="lbl_Password" Content="Passwort:" Grid.Column="0" Grid.Row="2" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                    <PasswordBox x:Name="pwdBox_Password" Grid.Column="1" Grid.Row="2" Margin="15" VerticalContentAlignment="Center" PasswordChanged="pwdBox_Password_PasswordChanged"></PasswordBox>
+
+                    <Label x:Name="lbl_PasswordConfirm" Content="Passwort bestätigen:" Grid.Column="0" Grid.Row="3" Margin="10" HorizontalAlignment="Right" VerticalAlignment="Center"></Label>
+                    <PasswordBox x:Name="pwdBox_PasswordConfirm" Grid.Column="1" Grid.Row="3" Margin="15" VerticalContentAlignment="Center" PasswordChanged="pwdBox_PasswordConfirm_PasswordChanged"></PasswordBox>
+                </Grid>
+            </xctk:WizardPage>
+            
+            <xctk:WizardPage x:Name="Page2" PageType="Interior"
+                                   Title="Page 2"
+                                   Description="This is the second page in the process">
+                <Grid>
+                    <!--Grid for the second page-->
+                </Grid>
+            </xctk:WizardPage>
+            <xctk:WizardPage x:Name="LastPage" PageType="Interior"
+                                   Title="Last Page"
+                                   Description="This is the last page in the process"
+                                   CanFinish="True">
+                <Grid>
+                    <!--Grid for the last page-->
+                </Grid>
+            </xctk:WizardPage>
+        </xctk:Wizard>
     </Grid>
 </Window>
