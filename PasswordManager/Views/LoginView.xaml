@@ -31,9 +31,9 @@
         
         <Label Content="Masterpasswort:" Grid.Column="0" Grid.Row="1" Margin="4"  FontSize="15" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"></Label>
 
-        <Button x:Name="btn_Input" Content="Eingabe" Grid.Column="1" Grid.Row="3" Margin="4" FontSize="20"></Button>
+        <Button x:Name="btn_InputPassword" Content="Eingabe" Grid.Column="1" Grid.Row="3" Margin="4" FontSize="20"></Button>
 
-        <Label Content="Einrichtung hier starten!" Grid.Column="1" Grid.Row="4" Margin="100,0,0,0"  FontSize="10" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" MouseLeftButtonDown="Label_MouseLeftButtonDown" ></Label>
+        <Label x:Name="lbl_StartSetup"  Content="Einrichtung hier starten!" Grid.Column="1" Grid.Row="4" Margin="100,0,0,0"  FontSize="10" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" MouseLeftButtonDown="SetupLabel_MouseLeftButtonDown" ></Label>
 
 
 

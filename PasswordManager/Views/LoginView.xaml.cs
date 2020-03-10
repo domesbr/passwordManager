@@ -24,6 +24,9 @@ namespace PasswordManager
         private void SetupLabel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             //TODO Open Setup Label
+            var SetupWindow = new Views.SetupView();
+            SetupWindow.ShowDialog();
+
         }
     }
 }
