@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS user (
 	id BIGINT NOT NULL,
     password VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL,
-    created TIMESTAMP NOT NULL DEFAULT current_timestamp,
+    created DATETIME NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -20,6 +20,5 @@ CREATE TABLE IF NOT EXISTS login_data (
     FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
-CREATE USER 'application'@'localhost' IDENTIFIED BY 'pwdManager2020';
-
-select * from user;
+CREATE USER 'application'@'%' IDENTIFIED BY 'pwdManager2020';
+GRANT ALL ON password_manager.* TO 'application'@'%';
