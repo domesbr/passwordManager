@@ -1,6 +1,9 @@
 ﻿using MySql.Data.Entity;
+using PasswordManager.Database.Entities;
 using PasswordManager.Database.Services;
+using PasswordManager.Entities;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Windows;
 using System.Windows.Input;

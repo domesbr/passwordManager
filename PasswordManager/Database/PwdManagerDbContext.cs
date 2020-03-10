@@ -1,4 +1,5 @@
 ﻿using MySql.Data.Entity;
+using PasswordManager.Database.Entities;
 using PasswordManager.Entities;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,8 @@ namespace PasswordManager.Database
     [DbConfigurationType(typeof(MySqlEFConfiguration))]
     class PwdManagerDbContext : DbContext
     {
-        public DbSet<User> User { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<LoginData> LoginDatas { get; set; }
 
         public PwdManagerDbContext()
           : base()
