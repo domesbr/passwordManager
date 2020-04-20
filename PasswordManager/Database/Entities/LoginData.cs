@@ -1,10 +1,12 @@
 ﻿using PasswordManager.Entities;
+using ServiceStack;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PasswordManager.Database.Entities
 {
+    [Route("/test")]
     [Table("login_data")]
-    class LoginData
+    public class LoginData
     {
         [Column("id")]
         public int Id { get; set; }
