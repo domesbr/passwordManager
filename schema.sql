@@ -22,6 +22,3 @@ CREATE TABLE IF NOT EXISTS login_data (
 
 CREATE USER 'application'@'%' IDENTIFIED BY 'pwdManager2020';
 GRANT ALL ON password_manager.* TO 'application'@'%';
-
-select * from user;
-select * from login_data;

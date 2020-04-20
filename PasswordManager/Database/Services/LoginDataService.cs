@@ -2,7 +2,6 @@
 using PasswordManager.Database.Entities;
 using PasswordManager.Entities;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 
 namespace PasswordManager.Database.Services
@@ -20,6 +19,25 @@ namespace PasswordManager.Database.Services
                     using (PwdManagerDbContext context = new PwdManagerDbContext(connection, false))
                     {
                         return context.LoginDatas.Where(data => data.userId == user.Id).ToList();
+                    }
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
+        public List<LoginData> findAll()
+        {
+            string connectionString = "server=localhost;port=3306;database=password_manager;uid=application;password=pwdManager2020";
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    using (PwdManagerDbContext context = new PwdManagerDbContext(connection, false))
+                    {
+                        return context.LoginDatas.ToList();
                     }
                 }
                 catch
@@ -59,7 +77,6 @@ namespace PasswordManager.Database.Services
                 {
                     using (PwdManagerDbContext context = new PwdManagerDbContext(connection, false))
                     {
-                        List<LoginData> a = context.LoginDatas.ToList();
                         context.LoginDatas.Find(loginData.Id).link = loginData.link;
                         context.LoginDatas.Find(loginData.Id).password = loginData.password;
                         context.LoginDatas.Find(loginData.Id).username = loginData.username;
@@ -69,6 +86,25 @@ namespace PasswordManager.Database.Services
                 catch
                 {
                     throw;
+                }
+            }
+        }
+
+        public LoginData findByUrl(string url)
+        {
+            string connectionString = "server=localhost;port=3306;database=password_manager;uid=application;password=pwdManager2020";
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    using (PwdManagerDbContext context = new PwdManagerDbContext(connection, false))
+                    {
+                        return context.LoginDatas.Where(data => url.Contains(data.link) || data.link.Contains(url)).First();
+                    }
+                }
+                catch
+                {
+                    return null;
                 }
             }
         }
