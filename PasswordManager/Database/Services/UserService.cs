@@ -2,6 +2,7 @@
 using PasswordManager.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace PasswordManager.Database.Services
@@ -13,11 +14,12 @@ namespace PasswordManager.Database.Services
             string connectionString = "server=localhost;port=3306;database=password_manager;uid=application;password=pwdManager2020";
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                //TODO es darf nur 1 user geben -> überschreiben (gucken ob man id 1 festlegen kann)
                 try
                 {
                     using (PwdManagerDbContext context = new PwdManagerDbContext(connection, false))
                     {
+                        user.Password = Encryption.Encryption.Encrypt(user.Password);
+                        context.Database.ExecuteSqlCommand("DELETE FROM user");
                         context.Users.Add(user);
                         context.SaveChanges();
                     }
