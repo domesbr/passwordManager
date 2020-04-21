@@ -1,9 +1,6 @@
 ﻿using MySql.Data.Entity;
-using PasswordManager.Database.Entities;
 using PasswordManager.Database.Services;
-using PasswordManager.Entities;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Windows;
 using System.Windows.Input;
@@ -23,6 +20,8 @@ namespace PasswordManager
 
         private void SetupLabel_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            UserService userService = new UserService();
+            userService.saveNewUser(new Entities.User(1, "password", "email", DateTime.Now));
             //TODO Open Setup Label
             var SetupWindow = new Views.SetupView();
             SetupWindow.ShowDialog();

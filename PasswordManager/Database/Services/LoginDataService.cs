@@ -18,7 +18,7 @@ namespace PasswordManager.Database.Services
                 {
                     using (PwdManagerDbContext context = new PwdManagerDbContext(connection, false))
                     {
-                        return context.LoginDatas.Where(data => data.userId == user.Id).ToList();
+                        return context.LoginDatas.Where(data => data.UserId == user.Id).ToList();
                     }
                 }
                 catch
@@ -56,6 +56,7 @@ namespace PasswordManager.Database.Services
                 {
                     using (PwdManagerDbContext context = new PwdManagerDbContext(connection, false))
                     {
+                        loginData.Password = Encryption.Encryption.Encrypt(loginData.Password);
                         context.LoginDatas.Add(loginData);
                         context.SaveChanges();
                     }
@@ -77,9 +78,9 @@ namespace PasswordManager.Database.Services
                 {
                     using (PwdManagerDbContext context = new PwdManagerDbContext(connection, false))
                     {
-                        context.LoginDatas.Find(loginData.Id).link = loginData.link;
-                        context.LoginDatas.Find(loginData.Id).password = loginData.password;
-                        context.LoginDatas.Find(loginData.Id).username = loginData.username;
+                        context.LoginDatas.Find(loginData.Id).Link = loginData.Link;
+                        context.LoginDatas.Find(loginData.Id).Password = Encryption.Encryption.Encrypt(loginData.Password);
+                        context.LoginDatas.Find(loginData.Id).Username = loginData.Username;
                         context.SaveChanges();
                     }
                 }
@@ -99,7 +100,7 @@ namespace PasswordManager.Database.Services
                 {
                     using (PwdManagerDbContext context = new PwdManagerDbContext(connection, false))
                     {
-                        return context.LoginDatas.Where(data => url.Contains(data.link) || data.link.Contains(url)).First();
+                        return context.LoginDatas.Where(data => url.Contains(data.Link) || data.Link.Contains(url)).First();
                     }
                 }
                 catch

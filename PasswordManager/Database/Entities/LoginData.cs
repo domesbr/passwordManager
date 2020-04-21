@@ -4,24 +4,33 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PasswordManager.Database.Entities
 {
-    [Route("/test")]
     [Table("login_data")]
     public class LoginData
     {
+        public LoginData(int id, string username, string password, string link, int userId, User user)
+        {
+            Id = id;
+            Username = username;
+            Password = password;
+            Link = link;
+            UserId = userId;
+            User = user;
+        }
+
         [Column("id")]
         public int Id { get; set; }
 
         [Column("username")]
-        public string username { get; set; }
+        public string Username { get; set; }
 
         [Column("password")]
-        public string password { get; set; }
+        public string Password { get; set; }
 
         [Column("link")]
-        public string link { get; set; }
+        public string Link { get; set; }
 
         [Column("user_id")]
-        public int userId { get; set; }
-        public User user { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
     }
 }

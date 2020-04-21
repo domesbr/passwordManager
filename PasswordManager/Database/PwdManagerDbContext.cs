@@ -18,17 +18,10 @@ namespace PasswordManager.Database
         public DbSet<LoginData> LoginDatas { get; set; }
 
         public PwdManagerDbContext()
-          : base()
-        {
+          : base() { }
 
-        }
-
-        // Constructor to use on a DbConnection that is already opened
         public PwdManagerDbContext(DbConnection existingConnection, bool contextOwnsConnection)
-          : base(existingConnection, contextOwnsConnection)
-        {
-
-        }
+          : base(existingConnection, contextOwnsConnection) { }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

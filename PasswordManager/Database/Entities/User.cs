@@ -8,6 +8,15 @@ namespace PasswordManager.Entities
     [Table("User")]
     public class User
     {
+        public User(int id, string password, string email, DateTime created)
+        {
+            Id = id;
+            Password = password;
+            EMail = email;
+            Created = created;
+            loginDatas = new List<LoginData>();
+        }
+
         [Column("id")]
         public int Id { get; set; }
 
