@@ -8,10 +8,10 @@
         mc:Ignorable="d"
         Title="SetupView" Height="350" Width="525" ResizeMode="NoResize">
     <Grid>
-        <xctk:Wizard FinishButtonClosesWindow="True">
+        <xctk:Wizard FinishButtonClosesWindow="True" CanHelp="False" HelpButtonVisibility="Hidden">
             <xctk:WizardPage x:Name="IntroPage" 
-                                   Title="Willkommenstext TODO"
-                                   Description="This Wizard will walk you though how to do something." />
+                                   Title="Passwort Manager"
+                                   Description="Dieser Wizard wird dir beim Setup deines Passwort Managers helfen." />
             <xctk:WizardPage x:Name="EmailPwdPage" PageType="Interior"
                                    Title="E-Mail und Passwort"
                                    Description="Gebe hier deine E-Mail und dein Passwort ein"
@@ -41,16 +41,16 @@
                 </Grid>
             </xctk:WizardPage>
             
-            <xctk:WizardPage x:Name="Page2" PageType="Interior"
-                                   Title="Page 2"
-                                   Description="This is the second page in the process">
+            <xctk:WizardPage x:Name="DatabasePage" PageType="Interior"
+                                   Title="Datenbank"
+                                   Description="Geben hier an wie deine Datenbank heißen soll.">
                 <Grid>
-                    <!--Grid for the second page-->
+                    <!--Grid for the second page TODO-->
                 </Grid>
             </xctk:WizardPage>
             <xctk:WizardPage x:Name="LastPage" PageType="Interior"
-                                   Title="Last Page"
-                                   Description="This is the last page in the process"
+                                   Title="Fertig!"
+                                   Description="Du hast erfolgreich den Wizard beendet und kannst nun den Passwort Manager benutzen."
                                    CanFinish="True">
                 <Grid>
                     <!--Grid for the last page-->
